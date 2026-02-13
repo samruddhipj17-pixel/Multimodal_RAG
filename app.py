@@ -1,14 +1,15 @@
 import streamlit as st
 import time
-
+import os
 from pypdf import PdfReader
 
-from rag.embeddings import get_jina_embeddings
-from rag.vision import describe_image
-from rag.chunking import chunk_text
-from rag.retriever import FAISSRetriever
-from rag.reranker import simple_rerank
-from rag.llm import ask_llm
+# Removed the 'rag.' prefix since files are in the same folder
+from embeddings import get_jina_embeddings
+from vision import describe_image
+from chunking import chunk_text
+from retriver import FAISSRetriever  # Note: your file is spelled 'retriver.py'
+from reranker import simple_rerank
+from llm import ask_llm
 
 
 st.set_page_config(
@@ -188,3 +189,4 @@ if txt_file and groq_key and jina_key:
 
 else:
     st.info("Upload a document and provide API keys to begin.")
+
